@@ -1,3 +1,6 @@
-gunicorn==23.0.0
-packaging==25.0
-whitenoise==6.11.0
+Microsoft Windows [Versi¢n 10.0.26200.7623]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+(venv) C:\AppServ\www\HojaDeVidaAutomatizada>
+
+(venv) C:\AppServ\www\HojaDeVidaAutomatizada>
