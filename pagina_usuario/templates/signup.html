@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center py-5">
+    <div class="col-md-7">
+        <div class="card shadow-lg border-0" style="border-radius: 20px;">
+            <div class="card-header bg-dark text-center py-4 border-bottom border-info">
+                <h2 class="text-white fw-bold mb-0">Crear Cuenta</h2>
+                <small class="text-info">Únete a la mejor gestión profesional</small>
+            </div>
+            <div class="card-body p-5">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">{{ field.label }}</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0"><i class="bi bi-pencil-square text-info"></i></span>
+                            <input type="{{ field.field.widget.input_type }}" 
+                                   name="{{ field.name }}" 
+                                   class="form-control bg-light border-0 p-2"
+                                   placeholder="{{ field.help_text|striptags|truncatechars:50 }}">
+                        </div>
+                        {% if field.errors %}
+                            <div class="text-danger small mt-1">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <button class="btn btn-info w-100 py-3 fw-bold text-white shadow mt-4" style="border-radius: 12px;">
+                        COMPLETAR REGISTRO
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

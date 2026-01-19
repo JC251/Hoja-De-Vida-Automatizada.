@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-5">
+        <div class="card shadow-lg border-0" style="border-radius: 20px; overflow: hidden;">
+            <div class="card-header bg-dark text-center py-4 border-bottom border-info">
+                <h2 class="text-white fw-bold mb-0">Iniciar Sesión</h2>
+                <small class="text-info">Bienvenido de nuevo a PROGRESSUS</small>
+            </div>
+            <div class="card-body p-5 bg-white">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold text-muted small uppercase">{{ field.label }}</label>
+                        <input type="{{ field.field.widget.input_type }}" 
+                               name="{{ field.name }}" 
+                               class="form-control form-control-lg bg-light border-0" 
+                               style="border-radius: 10px; font-size: 0.9rem;"
+                               placeholder="Ingresa tu {{ field.label }}">
+                    </div>
+                    {% endfor %}
+
+                    <button class="btn btn-info w-100 py-3 fw-bold text-white shadow-sm mt-3" style="border-radius: 12px; letter-spacing: 1px;">
+                        ENTRAR AHORA
+                    </button>
+                </form>
+            </div>
+            <div class="card-footer text-center py-3 bg-light border-0">
+                <span class="text-muted small">¿No tienes cuenta?</span>
+                <a href="{% url 'signup' %}" class="text-info fw-bold small text-decoration-none">Regístrate aquí</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

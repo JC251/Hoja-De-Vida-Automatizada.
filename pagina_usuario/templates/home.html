@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .hero-section {
+        height: 70vh;
+        background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
+                    url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069') no-repeat center center/cover;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 20px; text-align: center; margin-top: 20px;
+    }
+    .hero-title { font-size: 3rem; font-weight: 800; color: #f8fafc; }
+    .hero-subtitle { color: #94a3b8; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+</style>
+<div class="hero-section">
+    <div class="hero-content px-4">
+        <h1 class="hero-title mb-3">Tus proyectos, en orden.</h1>
+        <p class="hero-subtitle mb-5 fs-5">
+            Una herramienta sencilla para gestionar tus tareas diarias y mantener tu perfil profesional siempre listo para el siguiente paso.
+        </p>
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            {% if not user.is_authenticated %}
+                <a href="{% url 'signup' %}" class="btn btn-info btn-lg px-5 fw-bold text-dark rounded-pill">Empieza hoy mismo</a>
+            {% else %}
+                <a href="{% url 'tasks' %}" class="btn btn-info btn-lg px-5 fw-bold text-dark rounded-pill">Ver mis pendientes</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

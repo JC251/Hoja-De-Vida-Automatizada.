@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .form-card { 
+        background: #1e293b; 
+        border-radius: 12px; 
+        padding: 35px; 
+        max-width: 500px; 
+        margin: 50px auto; 
+        border: 1px solid #334155;
+    }
+    .form-control { background-color: #0f172a; border: 1px solid #334155; color: #fff; padding: 10px; }
+    .form-control:focus { background-color: #0f172a; color: #fff; border-color: #38bdf8; box-shadow: none; }
+</style>
+<div class="form-card shadow-lg">
+    <h4 class="fw-bold mb-4 text-white">Nueva tarea</h4>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label small text-secondary">¿Qué hay que hacer?</label>
+            <input type="text" name="title" class="form-control" placeholder="Ej: Revisar el presupuesto de marzo" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label small text-secondary">Detalles adicionales</label>
+            <textarea name="description" class="form-control" rows="3" placeholder="Anota aquí lo que necesites recordar..."></textarea>
+        </div>
+        <div class="form-check form-switch mb-4 mt-3">
+            <input class="form-check-input" type="checkbox" name="important" id="importantSwitch">
+            <label class="form-check-label text-light ms-2" for="importantSwitch">Marcar como urgente</label>
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-info fw-bold text-dark py-2">Guardar tarea</button>
+            <a href="{% url 'tasks' %}" class="btn btn-link text-secondary text-decoration-none mt-2 small">Regresar al panel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
