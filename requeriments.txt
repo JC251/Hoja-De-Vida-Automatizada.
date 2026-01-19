@@ -1,4 +1,6 @@
-Microsoft Windows [VersiÂ¢n 10.0.26200.7623]
+Microsoft Windows [Versi¢n 10.0.26200.7623]
 (c) Microsoft Corporation. Todos los derechos reservados.
+
+(venv) C:\AppServ\www\HojaDeVidaAutomatizada>
 
 (venv) C:\AppServ\www\HojaDeVidaAutomatizada>
